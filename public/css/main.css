@@ -1,0 +1,562 @@
+@charset "utf-8";
+
+/* ---------- ---------- ---------- ----------
+#RESET
+---------- ---------- ---------- ---------- */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,object {
+  margin: 0;
+  padding: 0;
+  font-family:'Futura','Arial','ヒラギノ角ゴPro W3','ＭＳ Ｐゴシック';
+  line-height: 1.6m;
+}
+
+*html td {
+  line-height: 1.6em;
+}
+
+body,div,dl,dt,dd,ul,ol,li,pre,form,fieldset,input,textarea,p,blockquote,th,td,object {
+  font-size: 13px;
+  font-family: 'Futura','Arial','ヒラギノ角ゴPro W3','ＭＳ Ｐゴシック';
+}  
+
+div,td {
+  text-align: justify;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+li {
+  list-style: none outside;
+}
+
+caption,th {
+  text-align: left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+img {
+  border: 0;
+}
+
+
+
+/* ---------- ---------- ---------- ----------
+#ALL
+---------- ---------- ---------- ---------- */
+html {
+  width: 100%;
+}
+
+body {
+  margin: 0 auto 0 auto;
+  border: 7px solid black;
+  height: 100%;
+}
+
+.rmv {
+  display: block;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.rmv-t {
+  text-indent: -9999px;
+}
+
+.clear {
+  clear: both;
+}
+
+/* 見出し --------------------------- */
+h1 {
+  font-size: 25pt;
+  font-weight: bold;
+  color: #888888;
+}
+
+h2 {
+  font-size: 18pt;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+h3 {
+  font-size: 13pt;
+  font-weight: bold;
+}
+
+
+/* 本文 --------------------------- */
+#wrap1 {
+  padding: 10px 20px;
+}
+
+
+/* ハイパーリンク --------------------------- */
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: #666666;
+}
+
+a:active {
+  color: #990000;
+}
+
+a:hover, a:hover:visited {
+  color: #ababab;
+}
+
+
+/* 共通 ----------------------------- */
+#num {
+  height: 20px;
+  padding: 0 0 3px 20px;
+  margin: 2px 0;
+}
+
+#title {
+}
+
+li#sq {
+  list-style-type : square;
+  font-family: 'Futura','Arial','ＭＳ ゴシック','ヒラギノ角ゴPro W3';
+}
+
+.toout {
+  background: url(../img/toout.gif) center left no-repeat;
+  margin-right: 2px;
+  padding: 0 0 0 16px;
+}
+
+.arrow-right {
+  background: url(../img/arrow-right.jpg) center left no-repeat;
+  margin-right: 2px;
+  padding: 0 0 0 16px;
+}
+
+#totop {
+  background: url(../img/totop.gif) center right no-repeat;
+  margin: 10px 0 10px 2px;
+  padding: 0 20px 0 0;
+  font-size: 10px;
+  text-align: right;
+}
+
+#right100 {
+  text-align: right;
+  width: 100%;
+}
+
+.right100 {
+  text-align: right;
+  width: 100%;
+}
+
+#center100 {
+  text-align: center;
+  width: 100%;
+}
+
+.center100 {
+  text-align: center;
+  width: 100%;
+}
+
+
+/* ヘッダー ----------------------------- */
+
+#header {
+  margin: 10px auto;
+  width: 100%;
+}
+
+#logo_nanachan {
+  display: block;
+  width: 385px;
+  height: 50px;
+  margin: 0px 0px 0px 15px;
+  background: url(../img/logo_bar.jpg) no-repeat left center;
+}
+
+
+#bt_headers {
+  float: right;
+  width: 300px;
+  height: 43px;
+}
+
+#bt_about {
+  display: block;
+  width: 158px;
+  height: 43px;
+  background: url(../img/bt_about.jpg) no-repeat top center;
+  float: left;
+}
+#bt_reload{
+  display: block;
+  width: 141px;
+  height: 43px;
+  background: url(../img/bt_reload.jpg) no-repeat top center;
+  float: right;
+}
+
+/* メインメニュー */
+div#menu {
+  width: 100%;
+  margin: 20px 0 0 0;
+  background-color: black;
+}
+
+ul.menu{
+width: 900px;
+height: 37px;
+background: url(../img/menu.jpg) no-repeat;
+margin: 0 auto;
+position: relative;
+}
+
+ul.menu li{
+list-style: none;
+position: absolute;
+padding: 0px;
+margin: 0px;
+top: 0px;
+}
+
+ul.menu li, ul.menu li a{
+height: 37px;
+display: block;
+overflow: hidden;
+}
+
+ul.menu li a {
+text-indent: -9999px;
+text-decoration: none;
+background-repeat: no-repeat;
+border: none;
+}
+
+.menuAbout{ left: 0px; width: 130px;}
+.menuPrograms{ left: 130px; width: 130px;}
+.menuArchives{ left: 260px; width: 128px;}
+.menuLinks{ left: 388px; width: 128px;}
+.menuAccess{ left: 516px; width: 128px;}
+.menuContact{ left: 644px; width: 128px;}
+.menuSponsor{ left: 772px; width: 128px;}
+
+.menuAbout a:hover, .menuAbout a:visited:hover, .menuAbout a.selected:link, .menuAbout a.selected:visited {
+  background: url(../img/menu.jpg) 0px -37px;
+}
+.menuPrograms a:hover, .menuPrograms a:visited:hover, .menuPrograms a.selected:link, .menuPrograms a.selected:visited {
+  background: url(../img/menu.jpg) -130px -37px;
+}
+.menuArchives a:hover, .menuArchives a:visited:hover, .menuArchives a.selected:link, .menuArchives a.selected:visited {
+  background: url(../img/menu.jpg) -260px -37px;
+}
+.menuLinks a:hover, .menuLinks a:visited:hover, .menuLinks a.selected:link, .menuLinks a.selected:visited {
+  background: url(../img/menu.jpg) -388px -37px;
+}
+.menuAccess a:hover, .menuAccess a:visited:hover, .menuAccess a.selected:link, .menuAccess a.selected:visited {
+  background: url(../img/menu.jpg) -516px -37px;
+}
+.menuContact a:hover, .menuContact a:visited:hover, .menuContact a.selected:link, .menuContact a.selected:visited {
+  background: url(../img/menu.jpg) -644px -37px;
+}
+.menuSponsor a:hover, .menuSponsor a:visited:hover, .menuSponsor a.selected:link, .menuSponsor a.selected:visited {
+  background: url(../img/menu.jpg) -772px -37px;
+}
+/* メインメニュー */
+
+
+
+/* フッター ----------------------------- */
+
+#footer{
+  margin: 45px 10px 10px 10px;
+}
+
+
+#copyright {
+  float: left;
+  font-size: 10px;
+  padding-top: 17px;
+}
+
+#logo_links{
+  float: right;
+}
+#logo_bunpro, #logo_commandn{
+  display: block;
+}
+
+#logo_bunpro{
+  float: left;
+  width: 250px;
+  height: 39px;
+  background: url(../img/logo_bunpro.jpg) no-repeat center center;
+}
+
+#logo_commandn {
+  float: right;
+  width: 130px;
+  height: 39px;
+  background: url(../img/logo_commandn.jpg) no-repeat center center;
+}
+
+
+
+/* コンテンツ ----------------------------- */
+
+/* --------メニュー-------- */
+
+#bt_livemovies, #bt_nextmovies, #bt_others, #bt_backmovies, #bt_events, #bt_blogs, #bt_photos, #bt_twitter{
+display: block;
+width: 100%;
+height: 33px;
+background-color: white;
+}
+#bt_links, #bt_links, #bt_banner, #bt_access, #bt_contact{
+display: block;
+float: left;
+width: 150px;
+height: 33px;
+}
+
+#bt_livemovies{
+  background: url(../img/bt_livemovies.jpg) no-repeat center left;
+}
+#bt_nextmovies{
+  background: url(../img/bt_nextmovies.jpg) no-repeat center left;
+}
+#bt_others{
+  background: url(../img/bt_others.jpg) no-repeat center left;
+}
+#bt_backmovies{
+  background: url(../img/bt_backmovies.jpg) no-repeat center left;
+}
+#bt_events{
+  background: url(../img/bt_events.jpg) no-repeat center left;
+}
+#bt_blogs{
+  background: url(../img/bt_blogs.jpg) no-repeat center left;
+}
+#bt_photos{
+  background: url(../img/bt_photos.jpg) no-repeat center left;
+}
+#bt_twitter{
+  background: url(../img/bt_twitter.jpg) no-repeat center left;
+}
+#bt_links{
+  background: url(../img/bt_links.jpg) no-repeat center left;
+}
+#bt_banner{
+  background: url(../img/bt_banner.jpg) no-repeat center left;
+}
+#bt_access{
+  background: url(../img/bt_access.jpg) no-repeat center left;
+}
+#bt_contact{
+  background: url(../img/bt_contact.jpg) no-repeat center left;
+}
+
+#bt_follow {
+  display: block;
+  width: 100%;
+  height: 30px;
+  background: url(../img/bt_follow.jpg) no-repeat center right;
+}
+
+
+
+/* -----各コンテンツ内-------- */
+
+#wrapall{
+  margin: 0 auto;
+  width: 900px;
+  height: 100%;
+}
+#wrapleft, #wrapcenter, #wrapright{float: left;}
+
+
+/*現在と次回の番組*/
+#wrapmovies{width: 100% height: 320px;}
+#wrapdisplay{float: left; width: 350px; height: 100%;}
+
+#arrow-black{
+  margin-left: 5px;
+  width: 12px;
+  height: 300px;
+  background: url(../img/arrow-black.jpg) white no-repeat 0px 40px;
+  float: left;
+}
+#wrapprograms{float: left; width: 527px; height: 320px; padding: 0px;}
+#programs{height: 290px;}
+#liveprogram, #nextprogram{
+  width: 507px;
+  height: auto;
+  text-overflow:  ellipsis;
+}
+#liveprogram p, #nextprogram p, #events p{
+  margin: 0 0 7px 0;
+}
+
+#liveprogram{
+  padding: 10px;
+  border: 3px black solid;
+}
+#nextprogram{
+  background: url(../img/bg8.jpg) white repeat center center;
+  padding: 10px;
+  border: 3px black solid;
+  margin-bottom: 5px;
+}
+
+
+/* 他団体 */
+#marquee_others{
+  width: 100%;
+  height: 60px;
+}
+#others_bidaisei, #others_muteki, #others_rhythm, #others_shibuya, #others_momo, #others_usagi, #others_tyoutin, #others_dance, #others_odc, #others_hyogen, #others_litchi, #others_cafe, #others_daihonban, #others_all, #others_gurukko{
+  display: block;
+  float: left;
+  height: 65px;
+}
+#others_bidaisei {
+  width: 160px;
+  background: url(../img/others_bidaisei.jpg) no-repeat center center;
+}
+#others_muteki {
+  width: 200px;
+  background: url(../img/others_muteki.jpg) no-repeat center center;
+}
+#others_rhythm {
+  width: 100px;
+  background: url(../img/others_rhythm.jpg) no-repeat center center;
+}
+#others_shibuya {
+  width: 160px;
+  background: url(../img/others_shibuya.jpg) no-repeat center center;
+}
+#others_momo {
+  width: 180px;
+  background: url(../img/others_momo.jpg) no-repeat center center;
+}
+#others_usagi {
+  width: 100px;
+  background: url(../img/others_usagi.jpg) no-repeat center center;
+}
+#others_tyoutin {
+  width: 200px;
+  background: url(../img/others_tyoutin.jpg) no-repeat center center;
+}
+#others_dance {
+  width: 160px;
+  background: url(../img/others_dance.jpg) no-repeat center center;
+}
+#others_odc {
+  width: 100px;
+  background: url(../img/others_odc.jpg) no-repeat center center;
+}
+#others_hyogen {
+  width: 100px;
+  background: url(../img/others_hyogen.jpg) no-repeat center center;
+}
+#others_litchi {
+  width: 100px;
+  background: url(../img/others_litchi.jpg) no-repeat center center;
+}
+#others_cafe {
+  width: 200px;
+  background: url(../img/others_cafe.jpg) no-repeat center center;
+}
+#others_daihonban {
+  width: 100px;
+  background: url(../img/others_daihonban.jpg) no-repeat center center;
+}
+#others_all {
+  width: 120px;
+  background: url(../img/others_all.jpg) no-repeat center center;
+}
+#others_gurukko {
+  width: 250px;
+  background: url(../img/others_gurukko.png) no-repeat center center;
+}
+
+#wrapleft {
+  width: 180px;
+}
+
+/* 過去の放送 */
+#wrapleft #backmovies, #wrapleft-contents #backmovies {
+  text-align: center;
+}
+#wrapleft-contents #backmovies, #wrapleft-contents #backmovies li {
+  margin-bottom: 15px;
+}
+#wrapleft #backmovies li a, #wrapleft-contents #backmovies li a {
+  font-size: 11px;
+}
+#wrapleft #backmovies img, #wrapleft-contents #backmovies img {
+  width: 95%;
+}
+
+#wrapcenter{
+  width: 440px;
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+/* イベント情報 */
+#events, #blogs{
+  width: 420px;
+  border: 3px black solid;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+#wrapright {
+  width: 234px;
+}
+
+/* フォトギャラリー */
+#photos_here a img {
+  margin: 0 0 3px 3px;
+}
+
+#photos_here {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: 15px;
+}
+
+/*
+#twitter {
+  width: 229px;
+  height: 310px;
+  margin: 0 17px 5px 1px;
+  overflow: hidden;
+  border: 3px black solid;
+  padding-top: -70px;
+}
+*/
+
+div#main {
+  width: 100%;
+}

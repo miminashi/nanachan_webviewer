@@ -1,0 +1,17 @@
+#displays {
+  padding-left: 10px;
+  width: 490px;
+  float: left;
+}
+#twitter {
+  width: 100%;
+  float: right;
+  margin-left: -510px;
+  margin-right: 10px;
+}
+#twitter>* {
+  margin-left: 510px;
+}
+#tweet-post-input {
+  width: 100%;
+}

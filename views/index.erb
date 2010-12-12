@@ -1,0 +1,67 @@
+<div id="twitter">
+  <div id="twitter_post">
+    <div style="width:100%; text-align:center">
+      <%= @tweet_post %>
+    </div>
+  </div>
+  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+  <script>
+    new TWTR.Widget({
+      version: 2,
+      type: 'search',
+      search: '#7ch',
+      interval: 2000,
+      title: 'なないろチャンネル',
+      subject: 'みんなのツィート',
+      width: '100%',
+      height: 450,
+      theme: {
+        shell: {
+          background: '#8ec1da',
+          color: '#ffffff'
+        },
+        tweets: {
+          background: '#ffffff',
+          color: '#444444',
+          links: '#1985b5'
+        }
+      },
+      features: {
+        scrollbar: true,
+        loop: true,
+        live: true,
+        hashtags: true,
+        timestamp: true,
+        avatars: true,
+        toptweets: false,
+        behavior: 'default'
+      }
+    }).render().start();
+  </script>
+</div>
+
+<div id="displays">
+  <div id="display1">
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="296" id="utv327205">
+      <param name="flashvars" value="autoplay=true&amp;brand=embed&amp;cid=2953923&amp;locale=ja_JP&amp;v3=1">
+      <param name="allowfullscreen" value="true">
+      <param name="allowscriptaccess" value="always">
+      <param name="movie" value="http://www.ustream.tv/flash/viewer.swf">
+      <embed flashvars="autoplay=true&amp;brand=embed&amp;cid=2953923&amp;locale=ja_JP&amp;v3=1" width="480" height="296" allowfullscreen="true" allowscriptaccess="always" id="utv327205" name="utv_n_626386" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash">
+    </object>
+  </div>
+
+  <div class="clear"></div>
+
+  <div id="display2">
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="296" id="utv387789">
+      <param name="flashvars" value="autoplay=true&amp;brand=embed&amp;cid=3127344&amp;locale=ja_JP&amp;v3=1&amp">
+      <param name="allowfullscreen" value="true">
+      <param name="allowscriptaccess" value="always">
+      <param name="movie" value="http://www.ustream.tv/flash/viewer.swf">
+      <embed flashvars="autoplay=true&amp;brand=embed&amp;cid=3127344&amp;locale=ja_JP&amp;v3=1" width="480" height="296" allowfullscreen="true" allowscriptaccess="always" id="utv387789" name="utv_n_991156" src="http://www.ustream.tv/flash/viewer.swf" type="application/x-shockwave-flash">
+    </object>
+  </div>
+</div>
+
+<div class="clear"></div>
