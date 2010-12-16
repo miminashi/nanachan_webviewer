@@ -1,9 +1,21 @@
 <div id="twitter">
-  <div id="twitter_post">
-    <div style="width:100%; text-align:center">
-      <%= @tweet_post %>
+  <div id="twitter-post">
+    <div style="width:100%;">
+      <% if session[:login] %>
+        <p><%= session[:screen_name] %>としてログインしています <a href="/twitter/oauth_logout">ログアウト</a></p>
+        <input type="text" id="tweet-post-input" name="tweet_post_input" />
+        <input type="button" id="tweet-post-button" value="TWEET!" onclick="post()" />
+        <div class="clear"></div>
+      <% else %>
+        <div style="width:100%; height:44px; text-align:center; padding-top:13px;">
+          <a href="/twitter/oauth">会話に参加する</a>
+        </div> 
+      <% end %>
     </div>
   </div>
+  <div id="tweets">Loading...</div>
+
+  <!--
   <script src="http://widgets.twimg.com/j/2/widget.js"></script>
   <script>
     new TWTR.Widget({
@@ -38,6 +50,7 @@
       }
     }).render().start();
   </script>
+  -->
 </div>
 
 <div id="displays">

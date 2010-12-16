@@ -12,6 +12,43 @@
 #twitter>* {
   margin-left: 510px;
 }
+#twitter-post {
+  border: solid;
+  border-width: 3px;
+  height: 44px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+/*
+#tweet-post {
+  border: solid;
+  border-width: 1px;
+  width: 500px;
+  float: left;
+} */
 #tweet-post-input {
-  width: 100%;
+  margin-top: 3px;
+  width: 500px;
+}
+#tweet-post-button {
+  width: 70px;
+  /* float: right; */
+}
+#tweets {
+  border: solid;
+  border-width: 3px;
+  height: 525px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.tweet {
+  padding: 0;
+  height: 48px;
+  margin-bottom: 4px;
+}
+.tweet img {
+  width: 48px;
+  height: 48px;
 }

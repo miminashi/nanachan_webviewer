@@ -1,0 +1,11 @@
+MONGO_SERVER = '172.16.0.65'
+#MONGO_SERVER = 'localhost'
+MONGO_DATABASE = 'streamcrawler'
+
+HASHTAG = '7ch'
+#HASHTAG = 'soinow'
+PER_PAGE = 10
+
+CONSUMER_KEY = 'avXUHaUfho6a4PPFflcxA'
+CONSUMER_SECRET = 'dTifkIEue9TFjvAdRGP5r1wNZ9YP9ORtPFki4teAjk'
+
