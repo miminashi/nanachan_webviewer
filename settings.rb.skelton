@@ -6,6 +6,6 @@ HASHTAG = '7ch'
 #HASHTAG = 'soinow'
 PER_PAGE = 10
 
-CONSUMER_KEY = 'avXUHaUfho6a4PPFflcxA'
-CONSUMER_SECRET = 'dTifkIEue9TFjvAdRGP5r1wNZ9YP9ORtPFki4teAjk'
+CONSUMER_KEY = 'your consumer key'
+CONSUMER_SECRET = 'your consumer secret'
 
