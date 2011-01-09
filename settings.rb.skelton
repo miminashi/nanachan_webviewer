@@ -1,6 +1,8 @@
 MONGO_SERVER = '172.16.0.65'
 #MONGO_SERVER = 'localhost'
 MONGO_DATABASE = 'streamcrawler'
+MONGO_POOLSIZE = 5
+MONGO_TIMEOUT = 5
 
 HASHTAG = '7ch'
 #HASHTAG = 'soinow'
