@@ -21,7 +21,7 @@ REQUEST_TOKEN_URL = 'http://twitter.com/oauth/request_token'
 OAUTH_CALLBACK_URL  = 'http://viewer.nanachan.tv/twitter/oauth_callback'
 
 # mongo settings
-MongoMapper.connection = Mongo::Connection.new(MONGO_SERVER)
+MongoMapper.connection = Mongo::Connection.new(MONGO_SERVER, 27017, :pool_size => MONGO_POOLSIZE, :timeout => MONGO_TIMEOUT)
 MongoMapper.database = MONGO_DATABASE
 
 class User
