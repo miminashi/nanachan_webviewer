@@ -117,6 +117,8 @@ function renderStatus(_data) {
       $(place).prepend('<div class="tweet">' + imgTag + textTag + clearTag + '</div></div>');
     }
   }
+  // 表示が終わったら2秒待ってから再度loadStatus()を実行
+  setTimeout("loadStatus()", 2000);
 }
 
 function replay(screen_name, tweet_id) {
@@ -162,6 +164,7 @@ function clearTips() {
 }
 
 function onBodyLoad() {
-  setInterval(loadStatus, 2000);
+  //setInterval(loadStatus, 2000);
+  loadStatus();
 }
 
