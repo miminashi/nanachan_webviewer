@@ -112,14 +112,6 @@ get '/twitter/oauth' do
 end
 
 get '/twitter/oauth_callback' do
-  ## あやしいコード
-  #u = URI.parse(request.env['REQUEST_URI'])
-  #_params = {}
-  #u.query.split('&').each do |ele|
-  #  ele = ele.split('=')
-  #  _params[ele[0]] = ele[1]
-  #end
-  ## end of あやしいコード
   request_token = session[:request_token]
   puts '/twitter/oauth_callback'
   p request_token
@@ -156,24 +148,14 @@ get '/twitter/oauth_logout' do
 end
 
 post '/twitter/update' do
-  # あやしいコード
-  #_params = request.env['rack.request.form_hash']
-  # end of あやしいコード
   text = params['text']
   p text
   if session[:login]
     begin
       if text == ''
-        #content_type 'application/json', :charset => 'utf-8'
-        #result = {:status => 'FAILED', :reason => 'text is empty'}
-        #return result.to_json
         status 400  # Bad Request
         return 'empty text'
       else
-        #oauth = Twitter::OAuth.new(CONSUMER_KEY, CONSUMER_SECRET)
-        #oauth.authorize_from_access(session[:access_token_token], session[:access_token_secret])
-        #client = Twitter::Base.new(oauth)
-        #client.update(text + ' http://viewer.nanachan.tv/ #' + HASHTAG)
         Twitter.configure do |config|
           config.consumer_key = CONSUMER_KEY
           config.consumer_secret = CONSUMER_SECRET
@@ -182,15 +164,10 @@ post '/twitter/update' do
         end
         t_text = text + ' ' + VIEWER_URL + ' #' + HASHTAG
         if t_text.split(//u).size > 150
-          #content_type 'application/json', :charset => 'utf-8'
           status 422  # Unprocessable Entity
-          #result = {:status => 'FAILED', :reason => 'too long text'}
-          #return result.to_json
           return 'text too long'
         else
           Twitter.update(t_text)
-          #content_type 'application/json', :charset => 'utf-8'
-          #result = {:status => 'FAILED', :reason => 'too long text'}
           status 200
           return 'post succeeded'
         end
