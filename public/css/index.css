@@ -36,6 +36,7 @@
   /* float: right; */
 }
 #tweets {
+  overflow: scroll;
   border: solid;
   border-width: 3px;
   height: 525px;
@@ -45,10 +46,27 @@
 }
 .tweet {
   padding: 0;
-  height: 48px;
+  /* height: 48px; */
   margin-bottom: 4px;
 }
 .tweet img {
   width: 48px;
   height: 48px;
+  float: left;
+}
+.tweet-text {
+  padding-left: 58px;
+  padding-right: 10px;
+  text-align: left;
+  clear: right;
+}
+.tweet-menu {
+  padding-left: 58px;
+  /* float: left; */
+}
+.tips {
+  position: absolute;
+  border: solid;
+  border-width: 1px;
+  background-color: white;
 }

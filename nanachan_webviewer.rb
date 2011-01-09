@@ -82,7 +82,7 @@ get '/twitter/status' do
     result[:formated_date] = format_date(t.created_at)
     result[:user_screen_name] = t.users[0].screen_name
     result[:user_profile_image_url] = t.users[0].profile_image_url
-    result[:text] = t.text
+    result[:text] = t.text.gsub(/http\:\/\/v.7ch.tv\/\ \#7ch$/, '')
     #pp result
     results << result
   end
@@ -164,7 +164,11 @@ post '/twitter/update' do
   if session[:login]
     begin
       if text == ''
-        return 'FAILED'
+        #content_type 'application/json', :charset => 'utf-8'
+        #result = {:status => 'FAILED', :reason => 'text is empty'}
+        #return result.to_json
+        status 400  # Bad Request
+        return 'empty text'
       else
         #oauth = Twitter::OAuth.new(CONSUMER_KEY, CONSUMER_SECRET)
         #oauth.authorize_from_access(session[:access_token_token], session[:access_token_secret])
@@ -176,20 +180,29 @@ post '/twitter/update' do
           config.oauth_token = session[:access_token_token]
           config.oauth_token_secret = session[:access_token_secret]
         end
-        t_text = text + ' http://viewer.nanachan.tv/ #' + HASHTAG
+        t_text = text + ' ' + VIEWER_URL + ' #' + HASHTAG
         if t_text.split(//u).size > 150
-          return 'FAILED text too long'
+          #content_type 'application/json', :charset => 'utf-8'
+          status 422  # Unprocessable Entity
+          #result = {:status => 'FAILED', :reason => 'too long text'}
+          #return result.to_json
+          return 'text too long'
         else
           Twitter.update(t_text)
-          return 'OK'
+          #content_type 'application/json', :charset => 'utf-8'
+          #result = {:status => 'FAILED', :reason => 'too long text'}
+          status 200
+          return 'post succeeded'
         end
       end
     rescue => e
       p e
-      return 'FAILED'
+      status 500  # Internal Server Error
+      return 'something else bad'
     end
   else
-    return 'NOLOGIN'
+    status 401  # Unauthorized
+    return 'not logged in'
   end
 end
 

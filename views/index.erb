@@ -2,11 +2,22 @@
   <div id="twitter-post">
     <div style="width:100%;">
       <% if session[:login] %>
+        <script>
+          <!--
+          var loggedIn = true;
+          -->
+        </script>
         <p><%= session[:screen_name] %>としてログインしています <a href="/twitter/oauth_logout">ログアウト</a></p>
         <input type="text" id="tweet-post-input" name="tweet_post_input" />
         <input type="button" id="tweet-post-button" value="TWEET!" onclick="post()" />
+        <input type="button" id="tweet-clear-button" value="CLEAR" onclick="clearValue()" />
         <div class="clear"></div>
       <% else %>
+        <script>
+          <!--
+          var loggedIn = false;
+          -->
+        </script>
         <div style="width:100%; height:44px; text-align:center; padding-top:13px;">
           <a href="/twitter/oauth">会話に参加する</a>
         </div> 
