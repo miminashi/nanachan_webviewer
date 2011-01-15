@@ -10,27 +10,9 @@ function post() {
     type: "POST",
     url: "/twitter/update",
     data: {text: text},
-    dataType: text,
+    dataType: "text",
     timeout: 10000,
     success: function(data, dataType){
-      //console.log(data);
-      //if(data == 'OK') {
-        //$('#tweet-post-input').val('');
-        //$('#tweet-post-input').removeAttr('disabled');
-        //$('#tweet-post-submit').removeAttr('disabled');
-      //}
-      //else if(data == 'FAILED text too long') {
-        //alert('送信に失敗しました. テキストが150文字を越えているかも');
-        //$('#tweet-post-input').val('');
-        //$('#tweet-post-input').removeAttr('disabled');
-        //$('#tweet-post-submit').removeAttr('disabled');
-      //}
-      //else {
-        //alert('送信に失敗しました. 原因はよくわかりません');
-        //$('#tweet-post-input').val('');
-        //$('#tweet-post-input').removeAttr('disabled');
-        //$('#tweet-post-submit').removeAttr('disabled');
-      //}
       resetTextInputUiState();
     },
     error: function(xmlHttpRequest, textStatus, errorThrown){
@@ -73,20 +55,33 @@ function clearValue() {
 
 function loadStatus() {
   var response;
+  var params;
+  var handler;
   if(lastStatus) {
-    //console.log(lastStatus);
-    $.getJSON('/twitter/status', {last_status: lastStatus}, function(data){
-      //console.log(data);
+    params = {last_status: lastStatus};
+    handler = function(data, dataType){
       renderStatus(data);
-    }); 
+    }
   }
   else {
-    $.getJSON('/twitter/status', {}, function(data){
-      //console.log(data);
+    params = {};
+    handler = function(data, dataType){
       $('#tweets').empty();
       renderStatus(data);
-    });
+    };
   }
+  //$.getJSON('/twitter/status', params, handler);
+  $.ajax({
+    type: "GET",
+    url: "/twitter/status",
+    data: params,
+    dataType: "json",
+    timeout: 10000,
+    success: handler,
+    error: function(xmlHttpRequest, textStatus, errorThrown){
+      bookLoadStatus();
+    },
+  });
 }
 
 function renderStatus(_data) {
@@ -118,6 +113,10 @@ function renderStatus(_data) {
     }
   }
   // 表示が終わったら2秒待ってから再度loadStatus()を実行
+  bookLoadStatus();
+}
+
+function bookLoadStatus() {
   setTimeout("loadStatus()", 2000);
 }
 
