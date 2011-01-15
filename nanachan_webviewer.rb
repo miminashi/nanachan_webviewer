@@ -183,3 +183,26 @@ post '/twitter/update' do
   end
 end
 
+post '/twitter/retweet' do
+  p params
+  if session[:login]
+    id = params['id']
+    if id
+      Twitter.configure do |config|
+        config.consumer_key = CONSUMER_KEY
+        config.consumer_secret = CONSUMER_SECRET
+        config.oauth_token = session[:access_token_token]
+        config.oauth_token_secret = session[:access_token_secret]
+      end
+      Twitter.retweet(id)
+      return 'RT was success'
+    else
+      status 400  # bad request
+      return 'no tweet id'
+    end
+  else
+    status 401  # Unauthorized
+    return 'not logged in'
+  end
+end
+

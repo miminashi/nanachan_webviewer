@@ -16,9 +16,6 @@ function post() {
       resetTextInputUiState();
     },
     error: function(xmlHttpRequest, textStatus, errorThrown){
-      //alert('送信に失敗しました');
-      //console.log('送信失敗');
-      //console.log(xmlHttpRequest);
       var responseText = xmlHttpRequest['responseText'];
       if(textStatus == 'error') {
         switch(responseText) {
@@ -37,6 +34,8 @@ function post() {
 }
 
 function lockTextInputUi() {
+  $('#tweet-post-input').attr('disabled', 'disabled');
+  $('#tweet-post-submit').attr('disabled', 'disabled');
 }
 
 function unlockTextInputUi() {
@@ -100,7 +99,7 @@ function renderStatus(_data) {
     var menuTag = '<p class="tweet-menu">'
                 + '<a href="#" onclick="replay(\'' + t['user_screen_name'] + '\', \'' + t['tweet_id'] + '\')" onmouseover="tipsReplay(this)">RE</a>'
                 + '&nbsp'
-                + '<a href="#" onclick="retweet(\'' + t['user_screen_name'] + '\', \'' + t['tweet_id'] + '\')" onmouseover="tipsRetweet(this)">RT</a>'
+                + '<a href="#" onclick="retweet(\'' + t['user_screen_name'] + '\', \'' + t['tweet_id'] + '\', \'' + t['text'] +'\')" onmouseover="tipsRetweet(this)">RT</a>'
                 + '&nbsp'
                 + '<a href="#" onclick="quateRetweet(\'' + t['user_screen_name'] + '\', \'' + t['text'] + '\')" onmouseover="tipsQuateRetweet(this)">qRT</a>'
                 + '</p>';
@@ -121,18 +120,38 @@ function bookLoadStatus() {
 }
 
 function replay(screen_name, tweet_id) {
-  //console.log('replay');
   var val = $('#tweet-post-input').val();
   $('#tweet-post-input').val('@' + screen_name + ' ' + val);
 }
 
-function retweet(screen_name, tweet_id) {
-  //console.log('retweet');
-  alert('もうすぐ公式RTができるようになると思うので、いまは我慢するか、引用RT（qRT）をお使いください');
+function retweet(screen_name, tweet_id, text) {
+  lockTextInputUi();
+  var res = window.confirm(screen_name + ': "' + text + '" をRTしますか？');
+  var successHandler = function(data, dataType) {
+    unlockTextInputUi(); 
+  };
+  var errorHandler = function(xmlHttpRequest, textStatus, errorThrown) {
+    alert('RTできませんでした');
+    unlockTextInputUi();
+  };
+  var params = {id: tweet_id};
+  if(res) {
+    $.ajax({
+      type: "POST",
+      url: "/twitter/retweet",
+      data: params,
+      dataType: "text",
+      timeout: 10000,
+      success: successHandler,
+      error: errorHandler
+    });   
+  }
+  else {
+    unlockTextInputUi();
+  }
 }
 
 function quateRetweet(screen_name, text) {
-  //console.log('quateRetweet');
   var val = 'RT @' + screen_name + ': ' + text;
   $('#tweet-post-input').val(val);
 }
